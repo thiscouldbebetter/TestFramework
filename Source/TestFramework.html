@@ -1,0 +1,85 @@
+<html>
+
+<body>
+
+	<h3>Tests - Demo</h3>
+
+	<p>
+		This page runs a couple of automated tests against a demo class,
+		and displays the results.
+	</p>
+
+	<!-- TestFramework classes. -->
+	<script type="text/javascript" src="Assert.js"></script>
+	<script type="text/javascript" src="Test.js"></script>
+	<script type="text/javascript" src="TestFixture.js"></script>
+	<script type="text/javascript" src="TestSuite.js"></script>
+
+	<!-- System under test classes. -->
+	<script type="text/javascript" src="Demo/Coords.js"></script>
+
+<!-- Test suite setup. -->
+
+<script type="text/javascript">
+
+var suite = new TestSuite
+(
+	"TestSuite",
+	[
+		new TestFixture
+		(
+			"CoordsTests",
+			[
+				new Test
+				(
+					"Add",
+					() =>
+					{
+						var coordsToAdd0 = new Coords(1, 2);
+						var coordsToAdd1 = new Coords(3, 4);
+						var coordsSum = coordsToAdd0.clone().add(coordsToAdd1);
+						Assert.areEqual
+						(
+							coordsToAdd0.x + coordsToAdd1.x, coordsSum.x
+						);
+						Assert.areEqual
+						(
+							coordsToAdd0.y + coordsToAdd1.y, coordsSum.y
+						);
+					}
+				),
+
+				new Test
+				(
+					"Subtract",
+					() =>
+					{
+						var coordsToSubtract0 = new Coords(1, 2);
+						var coordsToSubtract1 = new Coords(3, 4);
+						var coordsDifference =
+							coordsToSubtract0.clone().subtract(coordsToSubtract1);
+						Assert.areEqual
+						(
+							coordsToSubtract0.x - coordsToSubtract1.x,
+							coordsDifference.x
+						);
+						Assert.areEqual
+						(
+							coordsToSubtract0.y - coordsToSubtract1.y,
+							coordsDifference.y
+						);
+					}
+
+				)
+			]
+		)
+	]
+);
+
+suite.run();
+
+</script>
+
+</body>
+
+</html>
