@@ -27,7 +27,9 @@ accordingly.
 
 4. Add "script" elements corresponding to the classes of the system under test.
 
-5. Still in the .html, in the call to the TestSuite constructor, add
-some test fixtures containing tests.
+5. Still in the .html, in the call to the TestSuite constructor, replace
+the example test fixtures and tests with custom tests.
 
-6. Open the 
+6. Open the .html file in a web browser that runs JavaScript.
+
+7. Verify that all tests pass.
