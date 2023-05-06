@@ -1,19 +1,32 @@
 
 class Assert
 {
-	static areEqual(value0, value1)
+	static areEqual(valueExpected, valueActual)
 	{
-		if (value0 != value1)
+		if (valueActual != valueExpected)
 		{
-			throw new Error("Expected: equal, but was: not equal.");
+			throw new Error("Expected: " + valueExpected + ", but was: " + valueActual + ".");
 		}
 	}
 
-	static areNotEqual(value0, value1)
+	static areNotEqual(valueExpected, valueActual)
 	{
-		if (value0 == value1)
+		if (valueActual == valueExpected)
 		{
 			throw new Error("Expected: not equal, but was: equal.");
+		}
+	}
+
+	static areStringsEqual(stringExpected, stringActual)
+	{
+		if (stringActual != stringExpected)
+		{
+			var i = 0;
+			while (stringActual[i] == stringExpected[i])
+			{
+				i++;
+			}
+			throw new Error("Strings are not equal, starting at index: " + i + ".");
 		}
 	}
 
